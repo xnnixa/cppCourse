@@ -16,7 +16,7 @@ using namespace std;
  * a vertical line down the image at the x coordinage using the given color.
  * The modified PNG is then returned.
  *
- * @param original A PNG d object which holds the image data to be modified.
+ * @param original A PNG object which holds the image data to be modified.
  * @param centerX The center x coordinate of the crosshair which is to be drawn.
  * @param centerY The center y coordinate of the crosshair which is to be drawn.
  * @param color The color of the lines to be drawn.
