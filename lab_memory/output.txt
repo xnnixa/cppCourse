@@ -1,0 +1,280 @@
+
+/* Allocator: constructing */
+/* Allocator: Creating letter groups */
+/* Allocator: Done creating letter groups */
+Allocator: Loading students
+Allocator: Done loading students
+Allocator: Loading rooms
+/* Room: Default constructing */
+/* Room: Default constructing */
+/* Room: Default constructing */
+/* Room: Default constructing */
+/* Room: Default constructing */
+/* Room: Default constructing */
+/* Room: Default constructing */
+/* Room: Default constructing */
+/* Room: Default constructing */
+/* Room: Default constructing */
+10
+1
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+2
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+3
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+4
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+5
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+6
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+7
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+8
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+9
+/* Room: Param constructing */
+Room: Done param constructing
+/*Room: Assigning room */
+/* Room: clear */
+1
+/* Done clearing */
+/* Done assigning room */
+/* Room destructor */
+/* Room: clear */
+0
+Letters: 0x55a300ea8470
+/* Done clearing */
+Allocator: Done loading rooms
+/* Allocator: Done constructing */
+/* Allocator: allocating */
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 0
+Added Letter. LetterCount: 1
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 1
+Added Letter. LetterCount: 2
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 2
+Added Letter. LetterCount: 3
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 2
+Added Letter. LetterCount: 3
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 2
+Added Letter. LetterCount: 3
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 2
+Added Letter. LetterCount: 3
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 2
+Added Letter. LetterCount: 3
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 2
+Added Letter. LetterCount: 3
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 2
+Added Letter. LetterCount: 3
+Allocator: Largest opening
+Allocator: returning Largest opening: 
+Room: Adding Letter
+Room: Addletter if at: 3
+Added Letter. LetterCount: 4
+Room Allocation (237/248)
+ (0/0):
+MEB 153 (31/32): W F
+MEB 218 (30/31): L H
+MEB 243 (29/30): S P Q
+MEB 335 (28/30): K R U V
+Siebel 1105 (24/24): G A X
+Siebel 1109 (23/24): M J I
+Siebel 1302 (20/21): Z N O
+Siebel 1304 (19/21): B D E
+BUR 140 (33/35): C Y T
+

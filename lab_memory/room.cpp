@@ -37,8 +37,7 @@ Room::Room(const Room & other)
 Room & Room::operator=(const Room & other)
 {
 	std::cout << "/*Room: Assigning room */" << std::endl;
-	if (this != &other)
-	{
+	if (this != &other) {
 		clear();
 		copy(other);
 	}
@@ -61,7 +60,7 @@ Room::~Room()
 void Room::addLetter(const Letter & L)
 {
 	std::cout << "Room: Adding Letter" << std::endl;
-	if (letters != NULL && letterCount < max_letters)
+	if (letters != nullptr && letterCount < max_letters)
 	{
 	std::cout << "Room: Addletter if at: "<< letterCount << std::endl;
 	letters[letterCount++] = L;
@@ -97,10 +96,11 @@ void Room::clear()
 {
 	std::cout << "/* Room: clear */" << std::endl;
 	std::cout << (letters == nullptr) << std::endl;
-	if (letters != nullptr)
+	if (letters != nullptr){
 	std::cout <<"Letters: " << letters << std::endl;
 		delete []letters;
-
+		letters = nullptr;
+	}
 	std::cout << "/* Done clearing */" << std::endl;
 }
 
@@ -113,6 +113,10 @@ void Room::copy(const Room & other)
 	capacity    = other.capacity;
 	count       = other.count;
 	letterCount = other.letterCount;
-	letters     = other.letters;
+
+	letters = new Letter[max_letters];
+    for (int i = 0; i < letterCount; ++i) {
+        letters[i] = other.letters[i];
+	}
 }
 
