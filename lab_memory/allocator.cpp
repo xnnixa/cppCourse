@@ -20,6 +20,11 @@ Allocator::Allocator(const string & studentFile, const string & roomFile)
 	std::cout << "/* Allocator: Done constructing */" << std::endl;
 }
 
+Allocator::~Allocator() {
+    delete[] alpha; // Free Letter array
+    delete[] rooms; // Free Room array
+}
+
 /**
  * Allocates the array of letters
  */
