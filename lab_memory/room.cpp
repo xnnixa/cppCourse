@@ -8,7 +8,7 @@
 Room::Room()
     : capacity(0), count(0), max_letters(26), letters(NULL), letterCount(0)
 {
-	std::cout << "/* Room: Default constructing */" << std::endl;
+	// std::cout << "/* Room: Default constructing */" << std::endl;
  }
 
 /**
@@ -18,9 +18,9 @@ Room::Room()
 Room::Room(const string & init_name, int init_capacity)
 	: name(init_name), capacity(init_capacity), count(0), max_letters(26), letterCount(0)
 {
-	std::cout << "/* Room: Param constructing */" << std::endl;
+	// std::cout << "/* Room: Param constructing */" << std::endl;
 	letters = new Letter[max_letters];
-	std::cout << "Room: Done param constructing" << std::endl;
+	// std::cout << "Room: Done param constructing" << std::endl;
 }
 
 /**
@@ -36,12 +36,12 @@ Room::Room(const Room & other)
  */
 Room & Room::operator=(const Room & other)
 {
-	std::cout << "/*Room: Assigning room */" << std::endl;
+	// std::cout << "/*Room: Assigning room */" << std::endl;
 	if (this != &other) {
 		clear();
 		copy(other);
 	}
-	std::cout << "/* Done assigning room */" << std::endl;
+	// std::cout << "/* Done assigning room */" << std::endl;
 	return *this;
 }
 
@@ -50,7 +50,7 @@ Room & Room::operator=(const Room & other)
  */
 Room::~Room()
 {
-	std::cout << "/* Room destructor */" << std::endl;
+	// std::cout << "/* Room destructor */" << std::endl;
 	clear();
 }
 
@@ -59,14 +59,14 @@ Room::~Room()
  */
 void Room::addLetter(const Letter & L)
 {
-	std::cout << "Room: Adding Letter" << std::endl;
+	// std::cout << "Room: Adding Letter" << std::endl;
 	if (letters != nullptr && letterCount < max_letters)
 	{
-	std::cout << "Room: Addletter if at: "<< letterCount << std::endl;
+	// std::cout << "Room: Addletter if at: "<< letterCount << std::endl;
 	letters[letterCount++] = L;
 	count += L.count;
 	}
-	std::cout << "Added Letter. LetterCount: " << letterCount << std::endl;
+	// std::cout << "Added Letter. LetterCount: " << letterCount << std::endl;
 }
 
 /**
@@ -94,14 +94,14 @@ void Room::print()
  */
 void Room::clear()
 {
-	std::cout << "/* Room: clear */" << std::endl;
-	std::cout << (letters == nullptr) << std::endl;
+	// std::cout << "/* Room: clear */" << std::endl;
+	// std::cout << (letters == nullptr) << std::endl;
 	if (letters != nullptr){
-	std::cout <<"Letters: " << letters << std::endl;
+	// std::cout <<"Letters: " << letters << std::endl;
 		delete []letters;
 		letters = nullptr;
 	}
-	std::cout << "/* Done clearing */" << std::endl;
+	// std::cout << "/* Done clearing */" << std::endl;
 }
 
 /**
