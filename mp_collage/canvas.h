@@ -10,8 +10,9 @@
 #include "png.h"
 #include "vector2.h"
 #include "canvasitem.h"
+#include "drawable.h"
 
-class Canvas
+class Canvas : public Drawable 
 {
 	public:
 		Canvas();

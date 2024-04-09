@@ -9,15 +9,15 @@
 CanvasItem::CanvasItem(size_t x, size_t y, Vector2 position, Vector2 scale, RGBAPixel color) {
 	resize(x, y);
 	// TODO Initialize the pixels transparent so when drawing shapes, the background is transparent
-    for(size_t i = 0; i < x; i++) { // Using i for width traversal
-        for(size_t j = 0; j < y; j++) { // Using j for height traversal
-            // Access the pixel at (i, j)
+    for(size_t i = 0; i < x; i++) { 
+        for(size_t j = 0; j < y; j++) { 
+            
             RGBAPixel* pixel = operator()(i, j);
 
             // Set the default values for the pixel
-            pixel->red = 255;   // Full intensity
-            pixel->green = 255; // Full intensity
-            pixel->blue = 255;  // Full intensity
+            pixel->red = 255;   
+            pixel->green = 255; 
+            pixel->blue = 255;  
             pixel->alpha = 0;   // Fully transparent
         }
     }

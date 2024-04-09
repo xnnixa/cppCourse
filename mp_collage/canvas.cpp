@@ -7,7 +7,7 @@
 #include "canvas.h"
 #include <iostream>
 
-Canvas::Canvas()
+Canvas::Canvas() : currentSize(initialSize)
 {
 	itemcount = 0;
 	items = new CanvasItem*[initialSize];
@@ -37,12 +37,12 @@ void Canvas::Add(CanvasItem* item)
         // Deallocate the old array
         delete[] items;
 
-        // Update the items and initialSize
+        // Update the items
         items = newItems;
         currentSize = newSize;
     }
 
-    // Add the new item
+    // Add new item
     items[itemcount] = item;
     ++itemcount;
 }
@@ -56,13 +56,13 @@ void Canvas::Remove(CanvasItem* item)
     {
         if (items[i] == item)
         {
-            // Shift the items to the left
+            // Shift items to the left
             for (size_t j = i; j < itemcount - 1; ++j)
             {
                 items[j] = items[j + 1];
             }
 
-            // Decrease the item count
+            // Decrease item count
             --itemcount;
             break;
         }
@@ -122,9 +122,6 @@ void Canvas::draw(PNG* canvas) const
 						// Multiply x and y by item scale
 						
 						// Modify the two lines below
-
-						//int x1 = 
-						//int y1 = 
 
 						int x1 = static_cast<int>(pos.x() + (x * sc.x()) + xs);
                         int y1 = static_cast<int>(pos.y() + (y * sc.y()) + ys);
