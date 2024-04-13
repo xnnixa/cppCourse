@@ -57,6 +57,7 @@ class AnagramDict
 
     private: 
     std::map< std::string, std::vector< std::string> > dict;
+    std::string sorted_word(const std::string &word) const;
 };
 
 
