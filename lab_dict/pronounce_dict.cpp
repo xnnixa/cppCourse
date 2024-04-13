@@ -77,6 +77,10 @@ PronounceDict::PronounceDict(const unordered_map< string, vector< string > >&
  */
 bool PronounceDict::homophones(const string& word1, const string& word2) const
 {
-    /* Your code goes here! */
-    return true;
+    auto it = dict.find(word1);
+    auto it2 = dict.find(word2);
+
+    if (it == dict.end() || it2 == dict.end()) return false;
+ 
+    return it->second == it2->second;
 }

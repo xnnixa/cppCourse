@@ -10,7 +10,9 @@
 #define CARTALK_PUZZLE_H
 
 #include <string>
+#include <cctype>
 #include <tuple>
+#include <algorithm>
 
 #include "pronounce_dict.h"
 
