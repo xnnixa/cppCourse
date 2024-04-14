@@ -40,7 +40,11 @@ AnagramDict::AnagramDict(const string &filename)
         while (std::getline(words, word))
         {
             string key = sorted_word(word);
-            dict[key].push_back(word);
+            auto it = std::find(dict[key].begin(), dict[key].end(), word);
+            if (it == dict[key].end())
+            {
+                dict[key].push_back(word);
+            }
         }
     }
 }
@@ -51,10 +55,15 @@ AnagramDict::AnagramDict(const string &filename)
  */
 AnagramDict::AnagramDict(const vector<string> &words)
 {
-       for (const auto& word : words) {
-            string key = sorted_word(word);
+    for (const auto &word : words)
+    {
+        string key = sorted_word(word);
+        auto it = std::find(dict[key].begin(), dict[key].end(), word);
+        if (it == dict[key].end())
+        {
             dict[key].push_back(word);
         }
+    }
 }
 
 /**
@@ -65,12 +74,13 @@ AnagramDict::AnagramDict(const vector<string> &words)
  */
 vector<string> AnagramDict::get_anagrams(const string &word) const
 {
-        string key = sorted_word(word);
-        auto it = dict.find(key);
-        if (it != dict.end()) {
-            return it->second;
-        }
-        return {};  // Return empty vector if no anagrams found
+    string key = sorted_word(word);
+    auto it = dict.find(key);
+    if (it != dict.end())
+    {
+        return it->second;
+    }
+    return {}; // Return empty vector if no anagrams found
 }
 
 /**
