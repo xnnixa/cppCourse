@@ -7,8 +7,11 @@
  * @date Winter 2013
  */
 
+#include <map>
 #ifndef FIB_H
 #define FIB_H
+
+using namespace std;
 
 /** 
  * Calculates the nth Fibonacci number where the zeroth is defined to be 
@@ -25,5 +28,6 @@ unsigned long fib(unsigned long n);
  * @return The nth Fibonacci number.
  */
 unsigned long memoized_fib(unsigned long n);
+
 
 #endif /* FIB_H */

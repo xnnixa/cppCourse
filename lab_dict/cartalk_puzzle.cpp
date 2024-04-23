@@ -36,16 +36,17 @@ std::vector<StringTriple> cartalk_puzzle(PronounceDict d, const std::string &wor
         {
             if (word.size() >= 5)
             {
-                std::transform(word.begin(), word.end(), word.begin(),
+                std::string upperWord = word;
+                std::transform(upperWord.begin(), upperWord.end(), upperWord.begin(),
                                [](unsigned char c)
                                { return std::toupper(c); });
 
-                std::string firstCharR = word.substr(1);
-                std::string secondCharR = std::string(1, word.at(0)) + word.substr(2);
+                std::string firstCharR = upperWord.substr(1);
+                std::string secondCharR = std::string(1, upperWord.at(0)) + upperWord.substr(2);
 
-                if (d.homophones(word, firstCharR) && d.homophones(word, secondCharR))
+                if (d.homophones(upperWord, firstCharR) && d.homophones(upperWord, secondCharR))
                 {
-                    results.push_back(StringTriple(word, firstCharR, secondCharR));
+                    results.push_back(StringTriple(word, word.substr(1), std::string(1, word.at(0)) + word.substr(2)));
                 }
             }
         }

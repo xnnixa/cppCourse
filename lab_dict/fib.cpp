@@ -8,31 +8,62 @@
  */
 
 #include "fib.h"
+#include <iostream>
 
 #include <map>
-
+using namespace std;
 using std::map;
 
-/** 
- * Calculates the nth Fibonacci number where the zeroth is defined to be 
+static std::map< unsigned long, unsigned long > memo = 
+{
+   {0, 1},
+   {1, 1},
+};
+
+/**
+ * Calculates the nth Fibonacci number where the zeroth is defined to be
  * 0.
  * @param n Which number to generate.
  * @return The nth Fibonacci number.
  */
 unsigned long fib(unsigned long n)
 {
-    /* Your code goes here! */
-    return 0;
+
+    if (n == 0)
+    {
+        return 0;
+    }
+
+    if (n == 1)
+    {
+        return 1;
+    }
+    return (fib(n - 1) + fib(n - 2));
 }
 
-/** 
- * Calculates the nth Fibonacci number where the zeroth is defined to be 
+/**
+ * Calculates the nth Fibonacci number where the zeroth is defined to be
  * 0. This version utilizes memoization.
  * @param n Which number to generate.
  * @return The nth Fibonacci number.
  */
 unsigned long memoized_fib(unsigned long n)
 {
-    /* Your code goes here! */
-    return 0;
+    if (n == 0)
+    {
+        return 0;
+    }
+
+    if (n == 1)
+    {
+        return 1;
+    }
+    auto it = memo.find(n);
+
+    if (it == memo.end())
+    {
+        memo[n] = (memoized_fib(n - 1) + memoized_fib(n - 2));
+    }
+
+    return memo[n];
 }

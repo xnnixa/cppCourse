@@ -4,39 +4,62 @@
  */
 
 template <class T>
-List<T>::List() { 
-  // @TODO: graded in MP3.1
-    ListNode* head_ = NULL;
-    ListNode* tail_ = NULL;
-}
+List<T>::List() : head_(nullptr), tail_(nullptr), length_(0) {}
 
 /**
  * Returns a ListIterator with a position at the beginning of
  * the List.
  */
 template <typename T>
-typename List<T>::ListIterator List<T>::begin() const {
+typename List<T>::ListIterator List<T>::begin() const
+{
   // @TODO: graded in MP3.1
-  return List<T>::ListIterator(NULL);
+  return List<T>::ListIterator(head_);
 }
 
 /**
  * Returns a ListIterator one past the end of the List.
  */
 template <typename T>
-typename List<T>::ListIterator List<T>::end() const {
+typename List<T>::ListIterator List<T>::end() const
+{
   // @TODO: graded in MP3.1
-  return List<T>::ListIterator(NULL);
+  if (tail_ != nullptr)
+  {
+    return List<T>::ListIterator(tail_->next);
+  }
+  else
+  {
+    return nullptr;
+  }
 }
-
 
 /**
  * Destroys all dynamically allocated memory associated with the current
  * List class.
  */
 template <typename T>
-void List<T>::_destroy() {
+void List<T>::_destroy()
+{
   /// @todo Graded in MP3.1
+  ListNode *temp;
+  ListNode *current = head_;
+
+  if (head_ == nullptr || tail_ == nullptr)
+  {
+    return;
+  }
+
+  while (current != nullptr)
+  {
+    temp = current->next;
+    delete current;
+    current = temp;
+  }
+
+  head_ = nullptr;
+  tail_ = nullptr;
+  length_ = 0;
 }
 
 /**
@@ -46,22 +69,27 @@ void List<T>::_destroy() {
  * @param ndata The data to be inserted.
  */
 template <typename T>
-void List<T>::insertFront(T const & ndata) {
+void List<T>::insertFront(T const &ndata)
+{
   /// @todo Graded in MP3.1
-  ListNode * newNode = new ListNode(ndata);
-  newNode -> next = head_;
-  newNode -> prev = NULL;
-  
-  if (head_ != NULL) {
-    head_ -> prev = newNode;
+  ListNode *newNode = new ListNode(ndata);
+
+  newNode->next = head_;
+  newNode->prev = nullptr;
+
+  if (head_ != nullptr)
+  {
+    head_->prev = newNode;
   }
-  if (tail_ == NULL) {
+
+  if (tail_ == nullptr)
+  {
     tail_ = newNode;
   }
-  
+
+  head_ = newNode;
 
   length_++;
-
 }
 
 /**
@@ -71,8 +99,26 @@ void List<T>::insertFront(T const & ndata) {
  * @param ndata The data to be inserted.
  */
 template <typename T>
-void List<T>::insertBack(const T & ndata) {
+void List<T>::insertBack(const T &ndata)
+{
   /// @todo Graded in MP3.1
+  ListNode *newNode = new ListNode(ndata);
+
+  newNode->next = nullptr;
+  newNode->prev = tail_;
+
+  if (tail_ == nullptr)
+  {
+    head_ = newNode;
+  }
+  else
+  {
+    tail_->next = newNode;
+  }
+
+  tail_ = newNode;
+
+  length_++;
 }
 
 /**
@@ -92,43 +138,91 @@ void List<T>::insertBack(const T & ndata) {
  * @return The starting node of the sequence that was split off.
  */
 template <typename T>
-typename List<T>::ListNode * List<T>::split(ListNode * start, int splitPoint) {
+typename List<T>::ListNode *List<T>::split(ListNode *start, int splitPoint)
+{
   /// @todo Graded in MP3.1
-  ListNode * curr = start;
+  ListNode *curr = start;
 
-  for (int i = 0; i < splitPoint || curr != NULL; i++) {
+  if (curr == nullptr)
+  {
+    return nullptr;
+  }
+
+  for (int i = 0; i < splitPoint && curr != nullptr; i++)
+  {
     curr = curr->next;
   }
 
-  if (curr != NULL) {
-      curr->prev->next = NULL;
-      curr->prev = NULL;
+  if (curr->prev != nullptr)
+  {
+    curr->prev->next = nullptr;
+    curr->prev = nullptr;
   }
 
-  return NULL;
+  return curr;
 }
 
 /**
-  * Modifies List using the rules for a TripleRotate.
-  *
-  * This function will to a wrapped rotation to the left on every three 
-  * elements in the list starting for the first three elements. If the 
-  * end of the list has a set of 1 or 2 elements, no rotation all be done 
-  * on the last 1 or 2 elements.
-  * 
-  * You may NOT allocate ANY new ListNodes!
-  */
+ * Modifies List using the rules for a TripleRotate.
+ *
+ * This function will to a wrapped rotation to the left on every three
+ * elements in the list starting for the first three elements. If the
+ * end of the list has a set of 1 or 2 elements, no rotation all be done
+ * on the last 1 or 2 elements.
+ *
+ * You may NOT allocate ANY new ListNodes!
+ */
 template <typename T>
-void List<T>::tripleRotate() {
+void List<T>::tripleRotate()
+{
   // @todo Graded in MP3.1
-}
+    if (length_ < 3) return;
 
+    ListNode* current = head_;
+    ListNode* newHead = nullptr;
+    ListNode* lastOfPrevTrio = nullptr;
+    ListNode* lastNodesStart = nullptr;
+
+    while (current && current->next && current->next->next) {
+        ListNode* first = current;
+        ListNode* second = current->next;
+        ListNode* third = current->next->next;
+        current = third->next;
+        second->next = third;
+        third->next = first;
+        if (!newHead) {
+            newHead = second;
+        }
+        if (lastOfPrevTrio) {
+            lastOfPrevTrio->next = second;
+        }
+        lastOfPrevTrio = first;
+    }
+
+    if (current) {
+        lastNodesStart = current;
+    }
+
+    if (lastNodesStart) {
+        lastOfPrevTrio->next = lastNodesStart;
+        while (lastNodesStart->next) {
+            lastNodesStart = lastNodesStart->next;
+        }
+        tail_ = lastNodesStart;
+    } else {
+        lastOfPrevTrio->next = nullptr;
+        tail_ = lastOfPrevTrio;
+    }
+
+    head_ = newHead;
+}
 
 /**
  * Reverses the current List.
  */
 template <typename T>
-void List<T>::reverse() {
+void List<T>::reverse()
+{
   reverse(head_, tail_);
 }
 
@@ -144,7 +238,8 @@ void List<T>::reverse() {
  *  be reversed.
  */
 template <typename T>
-void List<T>::reverse(ListNode *& startPoint, ListNode *& endPoint) {
+void List<T>::reverse(ListNode *&startPoint, ListNode *&endPoint)
+{
   /// @todo Graded in MP3.2
 }
 
@@ -155,10 +250,10 @@ void List<T>::reverse(ListNode *& startPoint, ListNode *& endPoint) {
  * @param n The size of the blocks in the List to be reversed.
  */
 template <typename T>
-void List<T>::reverseNth(int n) {
+void List<T>::reverseNth(int n)
+{
   /// @todo Graded in MP3.2
 }
-
 
 /**
  * Merges the given sorted list into the current sorted list.
@@ -166,22 +261,24 @@ void List<T>::reverseNth(int n) {
  * @param otherList List to be merged into the current list.
  */
 template <typename T>
-void List<T>::mergeWith(List<T> & otherList) {
-    // set up the current list
-    head_ = merge(head_, otherList.head_);
-    tail_ = head_;
+void List<T>::mergeWith(List<T> &otherList)
+{
+  // set up the current list
+  head_ = merge(head_, otherList.head_);
+  tail_ = head_;
 
-    // make sure there is a node in the new list
-    if (tail_ != NULL) {
-        while (tail_->next != NULL)
-            tail_ = tail_->next;
-    }
-    length_ = length_ + otherList.length_;
+  // make sure there is a node in the new list
+  if (tail_ != nullptr)
+  {
+    while (tail_->next != nullptr)
+      tail_ = tail_->next;
+  }
+  length_ = length_ + otherList.length_;
 
-    // empty out the parameter list
-    otherList.head_ = NULL;
-    otherList.tail_ = NULL;
-    otherList.length_ = 0;
+  // empty out the parameter list
+  otherList.head_ = nullptr;
+  otherList.tail_ = nullptr;
+  otherList.length_ = 0;
 }
 
 /**
@@ -196,9 +293,10 @@ void List<T>::mergeWith(List<T> & otherList) {
  * @return The starting node of the resulting, sorted sequence.
  */
 template <typename T>
-typename List<T>::ListNode * List<T>::merge(ListNode * first, ListNode* second) {
+typename List<T>::ListNode *List<T>::merge(ListNode *first, ListNode *second)
+{
   /// @todo Graded in MP3.2
-  return NULL;
+  return nullptr;
 }
 
 /**
@@ -213,7 +311,8 @@ typename List<T>::ListNode * List<T>::merge(ListNode * first, ListNode* second) 
  * @return A pointer to the beginning of the now sorted chain.
  */
 template <typename T>
-typename List<T>::ListNode* List<T>::mergesort(ListNode * start, int chainLength) {
+typename List<T>::ListNode *List<T>::mergesort(ListNode *start, int chainLength)
+{
   /// @todo Graded in MP3.2
-  return NULL;
+  return nullptr;
 }
